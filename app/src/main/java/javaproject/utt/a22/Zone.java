@@ -12,14 +12,12 @@ public class Zone{
     /**
      * Set de pion de la team 1 present sur la zone.
      */
-    Set<Pion> setPionTeam1 = new HashSet<Pion>(){
-        Joueur joueur = new Joueur();
-    };
+    LinkedList<Pion> arrayPionTeam1 = new LinkedList<Pion>();
 
     /**
      * Set de pion de la team 2 present sur la zone.
      */
-    Set<Pion> setPionTeam2 = new HashSet<Pion>();
+    LinkedList<Pion> arrayPionTeam2 = new LinkedList<Pion>();
 
     /**
      * Attribut correspondant au nom de la zone.

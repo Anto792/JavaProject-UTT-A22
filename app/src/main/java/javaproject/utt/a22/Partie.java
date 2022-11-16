@@ -10,7 +10,7 @@ public class Partie {
     /**
      * Set de joueur present dans la partie.
      */
-    Set<Joueur> setJoueur = new HashSet<Joueur>();
+    ArrayList<Joueur> arrayJoueur = new ArrayList<Joueur>();
 
     /**
      * Attribut correspondant au plateau de la partie.
@@ -34,7 +34,12 @@ public class Partie {
      * @param args
      */
     public static void main(String[] args) {
-        
+
+    }
+
+
+    public Partie(){
+        this.status = StatusPartie.Parametrage;
     }
 
 
@@ -43,9 +48,11 @@ public class Partie {
      * @param joueur
      */
     public void addJoueur(Joueur joueur){
-        /*
-         * Ajouter le joueur au setJoueur.
-         */
+        if(!arrayJoueur.contains(joueur)){
+            arrayJoueur.add(joueur);
+        } else{
+            System.out.println("Le joueur est déjà dans la liste.");
+        }
     }
 
     /**

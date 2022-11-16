@@ -10,7 +10,7 @@ public class Joueur{
     /*
      * List de pion (soit 20 Pion, soit 15 Etudiant, 4 Elite et 1 Maitre)
      */
-    //List<Pion> listPion = new List<Pion>();
+    ArrayList<Pion> arrayPion = new ArrayList<Pion>();
 
     /**
      * Nombre de point que le joueur peut distribuer à ses pions.
@@ -62,8 +62,9 @@ public class Joueur{
     /**
      * Constructeur de la classe Joueur.
      */
-    public Joueur(){
-
+    public Joueur(Partie partie){
+        this.partie = partie;
+        this.partie.addJoueur(this);
     }
 
 

@@ -11,7 +11,12 @@ public class Pion{
     /**
      * Attribut specifiant à quel joueur appartient le pion.
      */
-    private Joueur joueur;
+    protected Joueur joueur;
+
+    /**
+     * Nom du pion.
+     */
+    protected String nom;
 
     /**
      * L'attribut ECTS équivaut à la vie du pion, une fois à 0 notre pion meurt.
@@ -21,7 +26,7 @@ public class Pion{
     /**
      * Statistique permettant l'esquive d'une attaque ou l'atteinte de la cible lors de l'attque (0 à 10).
      */
-    private int dexterite;
+    protected int dexterite;
     /**
      * Valeur maximal de la dexterite.
      */
@@ -34,7 +39,7 @@ public class Pion{
     /**
      * Statistique de force de l'attaque. Augmente les degats de 10% par points affectes (0 à 10).
      */
-    private int force;
+    protected int force;
     /**
      * Valeur maximale de la force.
      */
@@ -47,7 +52,7 @@ public class Pion{
     /**
      * Statistique de resistance aux attaques. Augmente la resistance de 5% par points affectes (0 à 10).
      */
-    private int resistance;
+    protected int resistance;
     /**
      * Valeur maximale de la resistance.
      */
@@ -60,7 +65,7 @@ public class Pion{
     /**
      * Statistique de vie supplémentaire. Augmente la vie initiale du nombre de points affectes (0 à 30).
      */
-    private int constitution;
+    protected int constitution;
     /**
      * Valeur maximale de la constitution.
      */
@@ -73,7 +78,7 @@ public class Pion{
     /**
      * Statistique d'initiative. Determine quel pion attaque le premier (0 à 10).
      */
-    private int initiative;
+    protected int initiative;
     /**
      * Valeur maximale de l'initiative.
      */
@@ -98,7 +103,7 @@ public class Pion{
     /**
      * Strategie que le pion adaptera pour combattre (Offensif, Defensif ou Aleatoire).
      */
-    private Strategie strategie;
+    private Strategie strategie = null;
 
 
     /**
@@ -112,20 +117,15 @@ public class Pion{
      * @param args
      */
     public static void main(String[] args){
-
+        
     }
 
 
     /**
      * Constructeur Pion
      */
-    public Pion(Joueur joueur){
-        this.joueur = joueur;
-        this.dexterite = 0;
-        this.force = 0;
-        this.resistance = 0;
-        this.constitution = 0;
-        this.initiative = 0;
+    public Pion(Joueur joueur, String nom){
+        
     }
 
     /**
@@ -435,8 +435,17 @@ public class Pion{
     public void setJoueur(Joueur joueur){
         if(!this.joueur.equals(joueur)){
             this.joueur.removePion(this);
-            this.joueur = joueur;
-            this.joueur.addPion(this);
         }
+        this.joueur = joueur;
+        this.joueur.addPion(this);
+    }
+
+
+    /**
+     * Redefinition de la methode toString
+     */
+    @Override
+    public String toString(){
+        return this.nom + " : Dexterite = " + this.dexterite + ", Force = " + this.force;
     }
 }
