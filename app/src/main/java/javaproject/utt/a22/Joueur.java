@@ -8,7 +8,7 @@ import java.util.*;
 public class Joueur{
     
     /*
-     * List de pion (soit 20 Pion, soit 15 Etudiant, 4 Elite et 1 Maitre)
+     * Liste de pions que possede le joueur.
      */
     ArrayList<Pion> arrayPion = new ArrayList<Pion>();
 
@@ -80,9 +80,7 @@ public class Joueur{
      * @param point
      */
     public void changerPoint(int point){
-        /*
-         * Changement du nombre de point que le joueur possède.
-         */
+        this.point += point;
     }
 
     /**
@@ -99,9 +97,7 @@ public class Joueur{
      * @param zone
      */
     public void addZoneControlee(Zone zone){
-        /*
-         * Ajout de la zone controlee.
-         */
+        this.setZoneControlee.add(zone);
     }
 
     /**
@@ -109,9 +105,9 @@ public class Joueur{
      * @param zone
      */
     public void removeZoneControlee(Zone zone){
-        /*
-         * Retret de la zone controlee.
-         */
+        if(this.setZoneControlee.contains(zone)){
+            this.setZoneControlee.remove(zone);
+        }
     }
 
 
@@ -120,9 +116,11 @@ public class Joueur{
      * @param pion
      */
     public void addPion(Pion pion){
-        /*
-         * Ajout du pion dans la liste.
-         */
+        if(this.arrayPion.contains(pion)){
+            System.out.println("Ce pion appartient déjà à ce joueur.");
+        } else{
+            this.arrayPion.add(pion);
+        }
     }
 
     /**
@@ -130,9 +128,11 @@ public class Joueur{
      * @param pion
      */
     public void removePion(Pion pion){
-        /**
-         * Retrait du pion de la liste.
-         */
+        if(this.arrayPion.contains(pion)){
+            this.arrayPion.remove(pion);
+        } else{
+            System.out.println("Ce pion n'appartient pas à ce joueur.");
+        }
     }
 
 
@@ -141,7 +141,7 @@ public class Joueur{
      * @param status
      */
     public void setStatus(StatusJoueur status){
-
+        this.status = StatusJoueur.Ready; //A revoir.
     }
 
     /**
